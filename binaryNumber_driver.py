@@ -1,19 +1,21 @@
 #-------------------------------------------------------------------------------
-# Name:        binaryNumber_driver.py
-# Purpose:  Rudimentary testing suite for the BinaryNumber class.
+# Name:     binaryNumber_driver.py
+# Purpose:  Rudimentary interactive testing for the BinaryNumber class.
 #
 # Author:      nakazawam and pearcej
 #
 # Created:     21/09/2014
+# Corrected conversion to Python 3.0 16/03/2018
 #-------------------------------------------------------------------------------
 
 from  binaryNumber import BinaryNumber
+
 def main():
-    testing = BinaryNumber()
-    print("instantiation of testing list.")
-    testing.convert_decimal_to_binary(10)
+    testing = BinaryNumber() # instantiation of testing list.
+    tobeconverted = input("Please enter the integer that you want to convert: ")
+    testing.convert_decimal_to_binary(int(tobeconverted))
     print(testing)
-    print("converted ten to binary.")
+    print("converted " + tobeconverted + " to binary.")
     testing.increment()
     print(testing)
     print("after incrementing (needs to be implemented.)")
