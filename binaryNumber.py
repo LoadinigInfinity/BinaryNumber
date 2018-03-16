@@ -36,10 +36,10 @@ class BinaryNumber(object):
             return
 
         # Now use an algorithm to convert a decimal number to binary.
-		# Repeatedly divide the number by 2 and keep the remainder.
+        # Repeatedly divide the number by 2 and keep the remainder.
         # It will build the binary number this way.
 
-		# Start the process with the first binary number.
+        # Start the process with the first binary number.
         if decimal%2 == 1:
             self.leastSignificantBit = Bit(True)
         else:
@@ -49,11 +49,11 @@ class BinaryNumber(object):
         # Now loop through the decimal and convert to binary.
         bitRef = self.leastSignificantBit
         remainder = 0
-        quotient = decimal/2
+        quotient = decimal // 2 # needs to be integer division
 
         while quotient > 0:
             remainder = quotient % 2
-            quotient = quotient / 2
+            quotient = quotient // 2 # needs to be integer division
 
             bitRef.add_next_bit( remainder == 1 )
             bitRef = bitRef.get_next_bit()	# Advance the reference
@@ -93,16 +93,18 @@ class BinaryNumber(object):
         self.leastSignificantBit = None
         self.numBits = 0
 
-    # You are to implement this function that will increment the binary
-    # number stored in a linked list by one, making sure to propogate any
-    # carries that are generated.
-
-    # For example, if the number 15 is stored as "1111" and this
-    # function is called,the result would be "10000" (really
-    # represented as 0->0->0->0->1, where the carry "rippled" up the
-    # bits, and an additional bit was added at the end because the 4th
-    # 1 really became a "10"
     def increment( self ):
+        '''TODO'''
+        # You are to implement this function that will increment the binary
+        # number stored in a linked list by one, making sure to propogate any
+        # carries that are generated.
+
+        # For example, if the number 15 is stored as "1111" and this
+        # function is called,the result would be "10000" (really
+        # represented as 0->0->0->0->1, where the carry "rippled" up the
+        # bits, and an additional bit was added at the end because the 4th
+        # 1 really became a "10"
+
         pass
 
 
@@ -121,7 +123,7 @@ class BinaryNumber(object):
 
     def __iter__(self):
 
-        return LListIterator(self.head)
+        return BNIterator(self.head)
 
 #------------------------------------------------------------
 
